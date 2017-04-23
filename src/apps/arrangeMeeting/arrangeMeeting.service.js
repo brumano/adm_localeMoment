@@ -19,7 +19,7 @@ App.service('arrangeMeetingService', ['arrangeMeetingRepository', function ($rep
             self.form = {};
 
             var promisse = $repository.getTimeZone(params).then(function (response) {
-                resposta = response.data;
+               return response.data;
             }).catch(function (error) {
                 return error;
             })

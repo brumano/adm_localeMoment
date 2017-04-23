@@ -1,4 +1,4 @@
-App.controller('AppController', function ($scope, $rootScope, $enum) {
+App.controller('AppController', function ($scope, $rootScope) {
   
 
 });

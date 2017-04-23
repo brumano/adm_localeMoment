@@ -1,31 +1,96 @@
-App.controller('ArrangeMeetingController', function ($scope, $http, $cache, $routeParams) {
+App.controller('ArrangeMeetingController',  ['$scope', '$http', 'arrangeMeetingService', function ($scope, $http,  $arrangeMeetingService) {
 
 
 
   
  
+  $scope.getATimeZone = new $arrangeMeetingService.getATimeZone();
+  $scope.cityhour = null;
+  $scope.anotherCityhour = null;
 
+  var cityValueTimeZone;
+  var anotherCityValueTimeZone;
   
 
-  $scope.openDataPublicacao = function() {
-    $scope.dataPublicacao.opened = true;
+  $scope.openDateMetting = function() {
+    $scope.dataMetting.opened = true;
   };
 
-  $scope.openDataExpiracao = function() {
-    $scope.dataExpiracao.opened = true;
-  };
-
+ 
     
   $scope.format = 'dd/MM/yyyy'
   
 
-  $scope.dataPublicacao = {
+  $scope.dataMetting = {
     opened: false
   };
 
-  $scope.dataExpiracao = {
-    opened: false
-  };
+  function calculateHourOfMeting() {
+      if(!!!cityValueTimeZone || !!!anotherCityValueTimeZone)
+        return;
+
+      var targetDate = new Date($scope.dataMettingValue);
+      var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60
+
+      var offsetCity = cityValueTimeZone.dstOffset * 1000 + cityValueTimeZone.rawOffset * 1000;
+      var offsetAnotherCity = anotherCityValueTimeZone.dstOffset * 1000 + anotherCityValueTimeZone.rawOffset * 1000;
+
+      if(offsetCity>offsetAnotherCity)
+      {
+        $scope.cityhour = new Date(timestamp * 1000 + offsetCity);
+        $scope.anotherCityhour = new Date(timestamp * 1000 + (offsetAnotherCity-offsetCity));
+      }
+      else{
+        $scope.cityhour = new Date(timestamp * 1000 + (offsetAnotherCity-offsetCity));
+        $scope.anotherCityhour = new Date(timestamp * 1000 + offsetCity);
+      }
+
+  }
+  
+  $scope.onCityValueChanged = function () {
+    if(!!!$scope.city || !!!$scope.city.geometry)
+      return;
+    
+    var params={
+      lat: $scope.city.geometry.location.lat(),
+      lng: $scope.city.geometry.location.lng(),
+      date:  $scope.dataMettingValue.setHours(08)
+    }
+
+     $scope.getATimeZone.fill(params).then(function (response) {
+          cityValueTimeZone =  response;
+          console.log(cityValueTimeZone);
+          calculateHourOfMeting();
+        }).then(function () {
+           
+        }).catch(function (error) {
+            throw error;
+        });
+
+  }
+  $scope.onAnotherCityValueChanged = function(){
+    if(!!!$scope.anotherCity || !!!$scope.anotherCity.geometry)
+      return;
+
+    var params={
+      lat: $scope.anotherCity.geometry.location.lat(),
+      lng: $scope.anotherCity.geometry.location.lng(),
+      date:  $scope.dataMettingValue.setHours(08),
+    }
+
+
+     $scope.getATimeZone.fill(params).then(function (response) {
+          anotherCityValueTimeZone =  response;
+          console.log(anotherCityValueTimeZone);
+          calculateHourOfMeting();
+
+        }).then(function () {
+           
+        }).catch(function (error) {
+            throw error;
+        });
+
+  }
 
 
 
@@ -47,5 +112,5 @@ App.controller('ArrangeMeetingController', function ($scope, $http, $cache, $rou
 
 	}();
 	
-});
+}]);
 
