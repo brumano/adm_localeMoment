@@ -1,9 +1,9 @@
 {
-  "name": "frontend-layout-administracao",
-  "description": "Frontend do módulo de administração do Robbyson",
+  "name": "frontend-teste-maxmilhas",
+  "description": "",
   "main": "index.js",
   "authors": [
-    "Diego Vinicius dos Santos Souza <diego.vdss@gmail.com>"
+    "Thiago Brumano <thiagobrumano@gmail.com>"
   ],
   "license": "ISC",
   "homepage": "",

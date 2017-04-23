@@ -1,7 +1,7 @@
 {
-  "name": "frontend-layout-administracao",
+  "name": "frontend-teste-maxmilhas",
   "version": "1.0.0",
-  "description": "Frontend do módulo de administração do Robbyson",
+  "description": "",
   "main": "index.js",
   "authors": [
     "Thiago Brumano Teixeira <thiagobrumano@gmail.com>"
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/Robbyson/frontend-layout-administracao.git"
+    "url": "git+https://github.com/brumano/maxmilhas-teste.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/Robbyson/frontend-layout-administracao/issues"
+    "url": "https://github.com/brumano/maxmilhas-teste/issues"
   },
-  "homepage": "https://gitlab.com/Robbyson/frontend-layout-administracao#README",
+  "homepage": "https://github.com/brumano/maxmilhas-teste#README",
   "dependencies": {
     "bash": "0.0.1",
     "del": "^2.2.2",
