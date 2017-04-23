@@ -1,0 +1,20 @@
+.dropdown-menu{
+    background-color: #353f4b;
+    border: transparent;
+    .divider {
+    
+    	background-color: #495969;
+	}
+	> li{
+		
+		> a{
+
+			    color: #f8f9f9;
+			    &:hover, &:focus {
+    			color: #8ED3FD;
+    			background-color: #1F3950;
+			}
+		}
+	} 
+}
+

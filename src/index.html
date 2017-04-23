@@ -1,0 +1,36 @@
+<html ng-app="Application">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>MaxMilhas</title>
+
+        <base href="/" />
+        <link rel="icon" type="image/x-ico" sizes="16x16" href="assets/images/ico/favicon.ico">
+       
+
+        <!-- inject:css -->
+        <!-- endinject -->
+    </head>
+
+    <body ng-controller="AppController">
+        <top-barr ng-show='routeConfig.selecaoMenu != "login"'></top-barr>
+        <lateral-menu ng-show='routeConfig.selecaoMenu != "login"'></lateral-menu>
+        
+        <div class="container" ng-class="{'full-container': routeConfig.selecaoMenu == 'login'}">
+            <div ng-view></div>
+        </div>
+        <script type="text/javascript" 
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPbTIwcRFCxFIALB4ayDB96lEA6wpJK-U&libraries=places"> 
+        </script>
+        <!-- inject:js -->
+        <!-- endinject -->
+        <!-- app:js -->
+        <!-- endinject -->
+       
+    </body>
+
+</html>
+

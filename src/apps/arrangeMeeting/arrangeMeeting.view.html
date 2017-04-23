@@ -1,0 +1,76 @@
+
+
+<div class="container-nova-msg">
+
+		<div class="row">
+		    
+    		<div class="col-md-12">
+	        	<fieldset>
+	            	<legend>Marcador de reuniões internacional</legend>
+
+  						<div class="row">
+
+  							<div class="col-md-4">
+  								<label> Melhor data da reunião </label>
+  								<div class="input-group ">
+
+				                	<input type="text" class="form-control " placeholder="Indefinido" 
+				                	uib-datepicker-popup="{{format}}" ng-model="dataPublicacaoValue" 
+				                	is-open="dataPublicacao.opened" datepicker-options="dateOptions" 
+				                	date-disabled="disabled(date, mode)"
+				                	ng-required="true" close-text="Fechar" >
+
+
+				                	<span class="input-group-btn">
+				                    	<button class="btn svg-bg-icon calendar_gray svg-md" type="button" ng-click="openDataPublicacao()">
+				                        	
+				                    	</button>
+				                	</span>
+
+				            	</div>
+			            	</div>
+			            	<div class="col-md-4">
+  								<label>Sua cidade</label>
+
+			            		<div class="form-group">
+				                	<input type="text"  class="form-control" placeholder="Indefinido" g-places-autocomplete ng-model="city" ng-required="true">
+				                	
+				            	</div>
+			            	</div>
+			            	<div class="col-md-4">
+  								<label>Cidade da outra pessoa</label>
+
+			            		<div class="form-group">
+				                	<input type="text"  class="form-control" placeholder="Indefinido" g-places-autocomplete ng-model="anotherCity" ng-required="true">
+				                	
+				            	</div>
+			            	</div>
+						</div>
+	        	</fieldset>
+    		</div>
+
+    		<div class="col-md-12">
+	        	<fieldset>
+	            	<legend>Horário da reunião</legend>
+	            	<div class=" well" ng-show="city.formatted_address">
+						{{city.formatted_address }}
+	            	</div>
+	            	<div class=" well" ng-show="anotherCity.formatted_address">
+						{{anotherCity.formatted_address }}
+	            	</div>
+  						
+	        	</fieldset>
+    		</div>
+    	</div>
+    	<hr />
+    	
+</div>
+			
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+@mixin labelBlockColor($fontColor, $backgroundColor, $porcent){
+    i { color: $fontColor !important; }
+    &::before { background: $backgroundColor; width: $porcent }
+}
+
+.label {
+    padding: 2px 15px;
+    color: #fff;
+    font-weight: normal;
+    border-radius: 10px;
+
+    &.label-block {
+        width: 100%;
+        height: 22px;
+        display: inline-block;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+        line-height: 12px;
+        margin: -2px 0;
+        position: relative;
+        overflow: hidden;
+        background-color: #7E91A0;
+
+        i {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            font-size: 12px;
+            position: absolute;
+        }
+
+        &::before {
+            content: '';
+            background: #F9B236;
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            z-index: 0;
+        }
+
+        //TODO: Alinhar junto ao numerador de status.
+        &.label-block-1 {
+            @include labelBlockColor(#9EA8B2, #FFFFFF, 100%);
+            border: 1px solid #9EA8B2;
+        }
+        &.label-block-2 { @include labelBlockColor(#FFF, #8DC44D, 100%) }
+        &.label-block-3 { @include labelBlockColor(#FFF, #11AEF5, 10%) }
+        &.label-block-4 { @include labelBlockColor(#FFF, #DD493D, 100%) }
+        &.label-block-5 { @include labelBlockColor(#FFF, #FAB037, 90%) }
+        
+        &.label-orderState {
+            @include labelBlockColor(#FFF, #7E91A0, 100%);
+            margin: 0;
+        }
+    }
+}

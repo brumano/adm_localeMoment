@@ -1,0 +1,17 @@
+@import "../_core/variables";
+
+fieldset {
+    border-top: 1px solid #D1D1D1;
+    margin-bottom: 20px;
+    
+    legend {
+        border: none;
+        color: #009BFF;
+        font-size: 20px;
+        background: #FFF;
+        width: auto;
+        padding: 0 10px 0 0;
+        margin-bottom: 20px;
+    }
+
+}

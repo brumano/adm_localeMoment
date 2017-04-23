@@ -1,0 +1,109 @@
+.uib-datepicker-popup{
+	&.dropdown-menu{
+		    background-color: #ffffff;
+		    padding: 5px;
+
+		    thead{
+		    	tr{
+		    		line-height: 30px;
+
+		    		&:nth-child(1){
+			    		th{
+			    			.btn{
+		    				    border-color: transparent;
+								background-color: #0199fe;
+								border-radius: 0;
+								padding: 7px;
+	    						line-height: 13px;
+	    						&:hover{
+	    							opacity: 0.8;
+	    						}
+
+								
+								:nth-child(n){
+									color: #fff;	
+								}
+			    			}
+		    				&:nth-child(1){
+							    .btn{
+							    	border-radius: 5px 0 0 5px;
+							    }
+							}		
+							&:nth-last-child(1){
+							    .btn{
+							    	border-radius: 0px 5px 5px 0;
+							    }
+							}	
+						}
+					}
+					&:nth-last-child(1){
+						th{
+							:nth-child(n){
+									color: #000;
+									font-weight: bold;
+									font-size: 12px;
+								}
+						}
+					}
+				}
+			}
+			.uib-button-bar{ 
+			   	.btn{
+			    	    padding: 5px 10px;
+    					font-size: 12px;
+
+			    	&.btn-info, &.btn-danger, &.btn-success{
+			    		color: #fff;
+			    		border-color: transparent;
+			    	}
+			    	&.btn-info {
+	    				background-color: #5bc0de;
+						&:hover {
+		    				background-color: #31b0d5;
+						}
+					}
+					&.btn-danger {
+	    				background-color: #d9534f;
+	    				&:hover {
+	    					background-color: #c9302c;
+						}
+					}
+					&.btn-success {
+	    				background-color: #5cb85c;
+	    				&:hover {
+	    					background-color: #449d44;
+	    				}
+					}
+			    }
+			}
+	   
+		tbody{
+			tr{
+				td{
+					padding: 1px;
+					.btn{
+			    		font-size: small;
+		    			padding: 3px 7px;
+		    			line-height: initial;
+		    			border-radius: 0px;
+		    			color: #333;
+		    			background-color: #e1e1e1;
+		    			border: solid 1px #ccc;
+		    			
+		    			:nth-child(n){color: #1e1e1e;}
+		    			&:hover, &.hover, &:active, &.active {
+		    				color: #fff;
+		    				background-color: #0199fe;
+		    				border-color: #ccc;
+		    				:nth-child(n){
+		    					color: #fff;
+		    				}
+						}
+		    
+		    		}
+				}
+			}
+			
+    	}
+	}
+}

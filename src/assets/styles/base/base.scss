@@ -1,0 +1,60 @@
+@import "../_core/variables";
+
+*, body {
+  font-family: open;
+  font-weight: normal;
+  color: $paleta-08;
+}
+
+body {
+  font-size: $fnt-xsm;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+body {
+
+    .container {
+  
+
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 60px);
+      top: 60px;
+      padding: 40px 35px;
+    }
+
+    hr {
+      border-color:#D1D1D1;
+  }
+}
+
+ label {
+        color: #7F919F;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+
+:focus {
+    outline: transparent !important;
+}
+
+
+
+
+
+
+
+
+
