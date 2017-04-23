@@ -30,20 +30,21 @@ App.controller('ArrangeMeetingController',  ['$scope', '$http', 'arrangeMeetingS
         return;
 
       var targetDate = new Date($scope.dataMettingValue);
-      var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60
+      targetDate.setHours(09);
+
+      var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60;
 
       var offsetCity = cityValueTimeZone.dstOffset * 1000 + cityValueTimeZone.rawOffset * 1000;
       var offsetAnotherCity = anotherCityValueTimeZone.dstOffset * 1000 + anotherCityValueTimeZone.rawOffset * 1000;
 
-      if(offsetCity>offsetAnotherCity)
-      {
-        $scope.cityhour = new Date(timestamp * 1000 + offsetCity);
-        $scope.anotherCityhour = new Date(timestamp * 1000 + (offsetAnotherCity-offsetCity));
-      }
-      else{
-        $scope.cityhour = new Date(timestamp * 1000 + (offsetAnotherCity-offsetCity));
-        $scope.anotherCityhour = new Date(timestamp * 1000 + offsetCity);
-      }
+      console.log(offsetCity);
+      console.log(offsetAnotherCity);
+      console.log(timestamp * 1000);
+      console.log(timestamp * 1000);
+
+        
+      $scope.cityhour = (offsetCity <= offsetAnotherCity) ? new Date(targetDate) : new Date(timestamp * 1000 + (offsetCity-offsetAnotherCity) + offsetCity);
+      $scope.anotherCityhour = (offsetAnotherCity <= offsetCity) ? new Date(targetDate) : new Date(timestamp * 1000 + (offsetAnotherCity-offsetCity) +  offsetAnotherCity);
 
   }
   
@@ -54,7 +55,7 @@ App.controller('ArrangeMeetingController',  ['$scope', '$http', 'arrangeMeetingS
     var params={
       lat: $scope.city.geometry.location.lat(),
       lng: $scope.city.geometry.location.lng(),
-      date:  $scope.dataMettingValue.setHours(08)
+      date: new Date(),
     }
 
      $scope.getATimeZone.fill(params).then(function (response) {
@@ -75,7 +76,7 @@ App.controller('ArrangeMeetingController',  ['$scope', '$http', 'arrangeMeetingS
     var params={
       lat: $scope.anotherCity.geometry.location.lat(),
       lng: $scope.anotherCity.geometry.location.lng(),
-      date:  $scope.dataMettingValue.setHours(08),
+      date: new Date(),
     }
 
 
